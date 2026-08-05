@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn.parallel import DistributedDataParallel
 from torch.utils.tensorboard import SummaryWriter
-import matplotlib.pyplot as plt
+
 from libs import load_opt
 import json
 
@@ -24,7 +24,7 @@ from .nms import batched_nms
 from .train_utils import Logger, AverageMeter, fix_random_seed, iou, time_str
 import os
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 try:
     from fvcore.nn import FlopCountAnalysis, flop_count_table

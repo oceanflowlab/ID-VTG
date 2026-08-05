@@ -5,7 +5,6 @@ from .fusion import make_fusion
 from .head import make_head
 from .text_net import make_text_net
 from .video_net import make_video_net
-from .compose import make_compose_net
 from .generate import make_generator
 from .blocks import MaskedConv1D
 import time
