@@ -36,3 +36,13 @@ events.out.tfevents.*
 .env
 .venv/
 venv/
+
+
+# C++ extension build files
+libs/nms/build/
+libs/nms/dist/
+libs/nms/*.egg-info/
+build/
+dist/
+*.so
+
