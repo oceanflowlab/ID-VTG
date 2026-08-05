@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+
+# Local cache
+.vector_cache/
+__pycache__/
+*.py[cod]
+
+# IDE
+.vscode/
+.idea/
+
+# Dataset and extracted features
+input_data/raw/
+input_data/image_feat/
+input_data/video_feat/
+*.npy
+
+# Training outputs
+experiments/
+checkpoints/
+outputs/
+runs/
+wandb/
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Logs and TensorBoard
+*.log
+events.out.tfevents.*
+
+# Local environments and secrets
+.env
+.venv/
+venv/
