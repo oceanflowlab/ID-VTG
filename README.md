@@ -75,27 +75,37 @@ Our model, **Visually-Guided Disambiguation Aggregation (VGD-Agg)**, adopts a du
 
 ## 🛠️ Installation
 
+### 1. Create the Conda Environment
+
 Clone this repository and create the Conda environment:
 
 ```bash
-git clone <YOUR_REPOSITORY_URL>
-cd <REPOSITORY_NAME>
+git clone git@github.com:JingliWei-oO/ID-VTG.git
+cd ID-VTG
 
 conda env create -f environment.yml
 conda activate idvtg
 ```
 
-Alternatively, install the dependencies from `requirements.txt` inside a clean Conda environment:
+
+
+### 2. Compile the 1D NMS Extension
+
+This repository is built upon [SnAG](https://github.com/fmu2/snag_release) and uses a PyTorch C++ extension for efficient 1D temporal NMS.
+
+After installing PyTorch and the remaining Python dependencies, compile the extension in the same Conda environment used for training and evaluation:
 
 ```bash
-conda create -n idvtg python=<TESTED_PYTHON_VERSION> -y
-conda activate idvtg
-
-# Install the PyTorch build matching your CUDA version first.
-pip install -r requirements.txt
+cd ./libs/nms
+python setup_nms.py install
+cd ../..
 ```
 
-Please use the tested Python, PyTorch, and CUDA versions recorded in `environment.yml`.
+> [!IMPORTANT]
+> Recompile the NMS extension whenever the PyTorch version is changed or upgraded.
+
+> [!NOTE]
+> Compilation is recommended on Linux and requires a compatible C++ compiler. If OpenMP is enabled by the extension, ensure that the compiler and OpenMP runtime are available on your system.
 
 ## 📦 Dataset and Feature Preparation
 
@@ -316,8 +326,21 @@ If you find this project useful, please cite our paper:
 }
 ```
 
-Please replace the placeholder author list and add the official DOI/pages once the publication metadata is available.
+Please add the official DOI and page numbers once the final publication metadata is available.
 
 ## 🤝 Acknowledgements
 
-This implementation builds on ideas and components from prior work in video temporal grounding, including SnAG, ActionFormer, and CLIP. We thank the authors of these projects for making their code and models available to the research community.
+This codebase is built upon [SnAG: Scalable and Accurate Video Grounding](https://github.com/fmu2/snag_release). We sincerely thank the authors for releasing their code.
+
+We also acknowledge the open-source implementations and pretrained models of ActionFormer and CLIP.
+
+If you use this codebase, please also consider citing SnAG:
+
+```bibtex
+@inproceedings{mu2024snag,
+  title     = {SnAG: Scalable and Accurate Video Grounding},
+  author    = {Mu, Fangzhou and Mo, Sicheng and Li, Yin},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2024}
+}
+```
